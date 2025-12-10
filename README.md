@@ -1,7 +1,3 @@
-# NextJS x Agora
-
-![assets/landing.png](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hifrer897jsqfsacufad.png)
-![Video Call](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/toidmib42ycml33600i6.png)
 
 
 ## How to Run
