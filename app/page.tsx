@@ -10,7 +10,7 @@ export default function Home() {
       <h1
         className="mb-4 mt-20 text-4xl font-extrabold leading-none tracking-tight text-gray-900"
       >
-        Чат с мамой
+        Чат
       </h1>
       <Form action="/channel">
       {/*<form onSubmit={(e) => {
