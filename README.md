@@ -1,5 +1,3 @@
-
-
 ## How to Run
 1. Add `PUBLIC_AGORA_APP_ID = '<---Your App Id--->'` to your `.env` file.
 2. Run `npm install` to install all dependencies.

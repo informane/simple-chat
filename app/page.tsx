@@ -36,7 +36,8 @@ export default function Home() {
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
               id="inline-full-name"
               type="text"
-              name="channel"
+              name="channel" 
+              value="Mama"
               placeholder="Enter channel name"
               required
             />
@@ -45,8 +46,7 @@ export default function Home() {
         <div className="text-center">
           <button
             className="inline-flex items-center justify-center px-5 py-3 mt-5 text-base font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-          >Submit</button
-          >
+          >Войти</button>
         </div>
       </Form>
     </div>
