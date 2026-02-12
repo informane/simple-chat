@@ -16,9 +16,6 @@ export default async function Page({
 
     return (
         <div className="flex w-full flex-col">
-            <p className="absolute z-10 mt-2 ml-12 text-2xl font-bold text-gray-900">
-                {channel}
-            </p>
             <Suspense fallback={<>...</>}>
                 <CallWrapper channelName={channel} />
             </Suspense>

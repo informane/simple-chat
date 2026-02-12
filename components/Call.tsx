@@ -27,7 +27,7 @@ function Call(props: { appId: string; channelName: string, rtcToken: string, num
           className="px-5 py-3 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 w-40"
           href="/"
         >
-          End Call
+          Завершить звонок
         </a>
       </div>
     </AgoraRTCProvider>
