@@ -36,11 +36,11 @@ export default function SubscribePopup({ user, channel }:
               autoPrompt: true,
               delay: { pageViews: 1, timeDelay: 3 },
               categories: [{
-                tag: "call",
-                label: "Пользователь вошел на канал"
+                tag: channel,
+                label: "Пользователь вошел на канал " + channel
               }],
               text: {
-                actionMessage: "Оставайтесь в курсе всех кто заходит на этот канал",
+                actionMessage: "Оставайтесь в курсе всех кто заходит на канал " + channel,
                 acceptButton: "Подписаться",
                 //cancelButton: "Maybe Later"
               }
