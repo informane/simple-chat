@@ -77,6 +77,8 @@ export default function SubscribePopup({ user, channel }:
         (event) => subscribeUser(event, user)
       )
     };
+
   }, []);
 
+  return null;
 };
