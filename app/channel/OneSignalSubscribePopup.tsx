@@ -53,6 +53,7 @@ export default function SubscribePopup({ user, channel }:
         'change',
         (event) => {
           subscribeUser(event, channel, user);
+        }
       );
 
     }
