@@ -1,10 +1,14 @@
-'use client'
-import { useRouter } from 'next/navigation';
 import Form from 'next/form';
 
-export default function Home() {
-  const router = useRouter()
+export default async function Home(
+  {
+    searchParams,
+  }: {
+    searchParams: Promise<{ userName: string }>
+  }
+) {
 
+  const { userName } = await searchParams;
   return (
     <div className="flex flex-col items-center">
       <h1
@@ -13,20 +17,14 @@ export default function Home() {
         Чат
       </h1>
       <Form action="/channel">
-      {/*<form onSubmit={(e) => {
-        e.preventDefault()
-        const target = e.target as typeof e.target & {
-          channel: { value: string }
-        };
-        router.push(`/channel/${target.channel.value}`)
-      }}>*/}
+
         <div className="md:flex md:items-center mt-6">
           <div>
             <label
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
               htmlFor="inline-full-name"
             >
-              Канал
+              Войти в чат комнату
             </label>
           </div>
           <div>
@@ -34,9 +32,20 @@ export default function Home() {
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
               id="inline-full-name"
               type="text"
-              name="channel" 
+              name="user"
+              value={userName}
+              placeholder="Имя лат. буквами"
+              required
+            />
+          </div>
+          <div>
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+              id="inline-full-name"
+              type="text"
+              name="channel"
               value="Mama"
-              placeholder="Enter channel name"
+              placeholder="Канал лат. буквамт"
               required
             />
           </div>
