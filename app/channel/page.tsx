@@ -16,7 +16,7 @@ export default async function Page({
         <div className="flex w-full flex-col">
 
             <Suspense fallback={<>...</>}>
-                <SubscribePopup userName={userName} channelName={channelName} />
+                <SubscribePopup user={userName} channel={channelName} />
                 <CallWrapper channelName={channelName} />
             </Suspense>
         </div>
