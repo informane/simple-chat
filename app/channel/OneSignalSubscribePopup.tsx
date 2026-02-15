@@ -52,8 +52,7 @@ export default function SubscribePopup({ user, channel }:
       OneSignal.User.PushSubscription.addEventListener(
         'change',
         (event) => {
-          subscribeUser(event, channel, user);
-        }
+          subscribeUser.bind(null, channel, user)
       );
 
     }
@@ -68,17 +67,17 @@ export default function SubscribePopup({ user, channel }:
 
   }, []);
 
-  const subscribeUser = async (isSubscribed, channel, user) => {
+  const subscribeUser = async (channel, user, isSubscribed) => {
 
-    if (isSubscribed) {
-      console.log('user subscribed success')
+    //if (isSubscribed) {
+      //console.log('user subscribed success')
       const user_id = OneSignal.User.onesignalId;
       //setUserId(user_id);
       console.log('user_id: ', OneSignal.User.onesignalId);
 
       OneSignal.login(user);
       console.log('user_name: ', user, 'ext_id: ', OneSignal.User.externalId);
-    }
+    //}
 
   }
   return null;
