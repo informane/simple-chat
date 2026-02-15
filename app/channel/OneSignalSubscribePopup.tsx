@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import OneSignal from 'react-onesignal';
 
-export default function SubscribePopup({ userName, channelName }:
-  { userName: string, channelName: string }
+export default function SubscribePopup({ user, channel }:
+  { user: string, channel: string }
 ) {
 
   const [userId, setUserId] = useState(null);
@@ -20,7 +20,7 @@ export default function SubscribePopup({ userName, channelName }:
         notificationClickHandlerMatch: 'exact',
         notificationClickHandlerAction: 'focus',
         welcomeNotification: {
-          message: 'Теперь вы (' + userName + ') подписаны на канал ' + channelName
+          message: 'Теперь вы (' + user + ') подписаны на канал ' + channel
         },
         autoResubscribe: false,
         /*webhooks: {
@@ -74,9 +74,9 @@ export default function SubscribePopup({ userName, channelName }:
       setUserId(user_id);
 
       if (user_id) {
-        OneSignal.login(userName);
+        OneSignal.login(user);
       }
-      
+
       return () => {
         OneSignal.User.PushSubscription.removeEventListener(
           'change',
