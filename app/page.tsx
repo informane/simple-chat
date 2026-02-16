@@ -16,7 +16,7 @@ export default async function Home({ user }) {
           <div>
             <label
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-full-name"
+              htmlFor="name"
             >
               Имя
             </label>
@@ -24,10 +24,10 @@ export default async function Home({ user }) {
           <div>
             <input
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-              id="inline-full-name"
+              id="name"
               type="text"
               name="user"
-              value="Valia"
+              defaultValue="Valia"
               placeholder="Имя лат. буквами"
               required
             />
@@ -35,7 +35,7 @@ export default async function Home({ user }) {
                     <div>
             <label
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-full-name"
+              htmlFor="channel"
             >
               Канал
             </label>
@@ -43,10 +43,10 @@ export default async function Home({ user }) {
           <div>
             <input
               className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-              id="inline-full-name"
+              id="channel"
               type="text"
               name="channel"
-              value="Mama"
+              defaultValue="Mama"
               placeholder="Канал лат. буквами"
               required
             />
