@@ -6,21 +6,24 @@ export async function sendPushCall(channel, user) {
         var oneSignalAppId = process.env.ONESIGNAL_APP_ID;
         var oneSignalApiKey = process.env.ONESIGNAL_REST_API_KEY;
 
-        await axios.post('https://api.onesignal.com/notifications?c=push', {
+        await axios.post('https://api.onesignal.com/notifications', {
             app_id: oneSignalAppId,
-            target_channel: "push",
+            //target_channel: "push",
             filters: [
                 {
                     "field": "tag",
-                    "relation": "=",
-                    "key": "category",
-                    "value": channel
+                    "relation": "exists",
+                    //"key": "category",
+                    "key": channel
                 },
-                                {
+                {
+                    "operator": "AND" // Ensures BOTH conditions must be met
+                },
+                {
                     "field": "tag",
-                    "relation": "!=",
-                    "key": "category",
-                    "value": 'user_' + user
+                    "relation": "not_exists",
+                    //"key": "category",
+                    "key": 'user_' + user
                 },
             ],
             data: {
