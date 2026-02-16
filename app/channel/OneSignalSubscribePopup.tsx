@@ -51,22 +51,22 @@ export default function SubscribePopup({ user, channel }:
 
       OneSignal.User.PushSubscription.addEventListener(
         'change',
-        subscribeUser
+        (event) => subscribeUser(event, user)
       );
 
     }
     initializeOneSignal();
 
-    const subscribeUser = async (event) => {
+    const subscribeUser = async (event,, user) => {
 
       //if (isSubscribed) {
       //console.log('user subscribed success')
       const user_id = OneSignal.User.onesignalId;
       //setUserId(user_id);
       console.log('user_id: ', OneSignal.User.onesignalId);
-      console.log(OneSignal.User, 'user_name: ', user, 'ext_id: ', OneSignal.User.externalId);
+      console.log(OneSignal.User, 'user_name: ', user);
       await OneSignal.login(user);
-      console.log('login succecss')
+      console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
       //}
 
     }
