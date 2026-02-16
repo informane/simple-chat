@@ -24,7 +24,7 @@ export default function SubscribePopup({ user, channel }/*:
         await OneSignal.init({
           appId: appId,
           safari_web_id: safari_web_id,
-          notificationClickHandlerMatch: 'exact',
+          notificationClickHandlerMatch: 'origin',
           notificationClickHandlerAction: 'focus',
           welcomeNotification: {
             message: 'Теперь вы (' + user + ') подписаны на канал ' + channel
