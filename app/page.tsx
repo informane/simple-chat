@@ -27,7 +27,7 @@ export default async function Home({ user }) {
               id="inline-full-name"
               type="text"
               name="user"
-              value={user}
+              value="Valia"
               placeholder="Имя лат. буквами"
               required
             />

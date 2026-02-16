@@ -33,7 +33,7 @@ export async function sendPushCall(channel, user) {
             contents: {
                 en: user + " вошел на канал " + channel,
             },
-            url: "https://simple-chat-mu-sand.vercel.app/?user=Valia"
+            url: "https://simple-chat-mu-sand.vercel.app"
         }, {
             headers: {
                 'Authorization': `Key ${oneSignalApiKey}`,
