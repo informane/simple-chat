@@ -18,7 +18,7 @@ export default async function Home({ user }) {
               className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
               htmlFor="inline-full-name"
             >
-              Войти в чат комнату
+              Имя
             </label>
           </div>
           <div>
@@ -31,6 +31,14 @@ export default async function Home({ user }) {
               placeholder="Имя лат. буквами"
               required
             />
+          </div>
+                    <div>
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="inline-full-name"
+            >
+              Канал
+            </label>
           </div>
           <div>
             <input
