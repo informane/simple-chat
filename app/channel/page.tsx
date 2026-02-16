@@ -11,7 +11,7 @@ export default async function Page({ user, channel })
     searchParams: Promise<{ userName: string, channelName: string }>
 })*/ {
     //const { channelName, userName } = await searchParams;
-    console.log("channel Name: ", channel, "user Name:", use);
+    console.log("channel Name: ", channel, "user Name:", user);
 
     return (
         <div className="flex w-full flex-col">
