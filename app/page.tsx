@@ -46,7 +46,7 @@ export default async function Home({ user }) {
               id="channel"
               type="text"
               name="channel"
-              defaultValue="Mama"
+              value="Valia"
               placeholder="Канал лат. буквами"
               required
             />
