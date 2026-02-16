@@ -51,13 +51,13 @@ export default function SubscribePopup({ user, channel }:
 
       OneSignal.User.PushSubscription.addEventListener(
         'change',
-        (event) => subscribeUser(event, user)
+        subscribeUser
       );
 
     }
     initializeOneSignal();
 
-    const subscribeUser = async (event, user) => {
+    const subscribeUser = async (event) => {
 
       //if (isSubscribed) {
       //console.log('user subscribed success')
@@ -71,12 +71,12 @@ export default function SubscribePopup({ user, channel }:
 
     }
 
-    return () => {
+    /*return () => {
       OneSignal.User.PushSubscription.removeEventListener(
         'change',
         (event) => subscribeUser(event, user)
       )
-    };
+    };*/
 
   }, []);
 
