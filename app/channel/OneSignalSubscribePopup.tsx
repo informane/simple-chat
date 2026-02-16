@@ -6,7 +6,7 @@ export default function SubscribePopup({ user, channel }:
   { user: string, channel: string }
 ) {
 
-  const [userId, setUserId] = useState(null);
+  const [userName, setUserName] = useState(user);
   const appId = "fe2e257e-4fa0-449a-a353-4f33b49336cb";
   const safari_web_id = "web.onesignal.auto.16bc3731-50fd-4ae0-bf69-b8ea0dbfb349";
 
@@ -56,17 +56,17 @@ export default function SubscribePopup({ user, channel }:
 
     }
     initializeOneSignal();
-    
 
-    const subscribeUser = async (event, user) => {
+
+    const subscribeUser = async (event, user1) => {
 
       //if (isSubscribed) {
       //console.log('user subscribed success')
       const user_id = OneSignal.User.onesignalId;
       //setUserId(user_id);
       console.log('user_id: ', OneSignal.User.onesignalId);
-      console.log(OneSignal.User, 'user_name: ', user);
-      await OneSignal.login(user);
+      console.log(OneSignal.User, 'user_name: ', user, user1, userName);
+      await OneSignal.login(userName);
       console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
       //}
 
