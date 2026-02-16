@@ -1,5 +1,5 @@
 "use client";
-import { sendPushCall } from '../app/channel/lib';
+
 import AgoraRTC, {
   AgoraRTCProvider,
   LocalVideoTrack,
@@ -19,9 +19,6 @@ function Call(props: { appId: string, channelName: string, userName: string, rtc
     AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
   );
   
-
-  sendPushCall(props.channelName, props.userName);
-
   return (
     <AgoraRTCProvider client={client}>
       <Videos channelName={props.channelName} AppID={props.appId} token={props.rtcToken} uid={props.numericUid} />

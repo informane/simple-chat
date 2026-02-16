@@ -2,6 +2,7 @@
 import CallWrapper from "@/components/CallWrapper";
 import SubscribePopup from './OneSignalSubscribePopupWrap';
 import { Suspense } from 'react'
+import { sendPushCall } from './lib';
 
 //export default function Page({ user, channel }) 
 export default async function Page({
@@ -11,6 +12,10 @@ export default async function Page({
 }) {
     const { channel, user } = await searchParams;
     console.log("channel Name: ", channel, "user Name:", user);
+
+
+    const pushPromise = await sendPushCall(channel, user);
+    console.log(pushPromise)
 
     return (
         <div className="flex w-full flex-col">
