@@ -1,5 +1,6 @@
 "use client";
-
+import { channel } from 'diagnostics_channel';
+import { sendPushCall } from '../app/channel/lib';
 import AgoraRTC, {
   AgoraRTCProvider,
   LocalVideoTrack,
@@ -14,11 +15,14 @@ import AgoraRTC, {
 } from "agora-rtc-react";
 
 
-function Call(props: { appId: string; channelName: string, rtcToken: string, numericUid: number }) {
+async function Call(props: { appId: string, channelName: string, userName: string, rtcToken: string, numericUid: number }) {
   const client = useRTCClient(
     AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
   );
 
+  const PushPromise = await sendPushCall(props.channelName, props.userName);
+  console.log(PushPromise);
+  
   return (
     <AgoraRTCProvider client={client}>
       <Videos channelName={props.channelName} AppID={props.appId} token={props.rtcToken} uid={props.numericUid} />

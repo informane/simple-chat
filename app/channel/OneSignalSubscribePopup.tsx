@@ -44,8 +44,13 @@ export default function SubscribePopup({ user, channel }/*:
                 delay: { pageViews: 1, timeDelay: 3 },
                 categories: [{
                   tag: channel,
-                  label: "Пользователь вошел на канал " + channel
-                }],
+                  label: channel
+                },
+                {
+                  tag: 'user_' + user,
+                  label: 'user_' + user,
+                }
+                ],
                 text: {
                   actionMessage: "Оставайтесь в курсе всех кто заходит на канал " + channel,
                   acceptButton: "Подписаться",
@@ -56,7 +61,7 @@ export default function SubscribePopup({ user, channel }/*:
           },
         });
 
-        const subscribeUser = async (event) => {
+        var subscribeUser = async (event) => {
 
           //if (isSubscribed) {
           //console.log('user subscribed success')
@@ -89,7 +94,7 @@ export default function SubscribePopup({ user, channel }/*:
     /*return () => {
       OneSignal.User.PushSubscription.removeEventListener(
         'change',
-        (event) => subscribeUser(event, user)
+        subscribeUser
       )
     };*/
 

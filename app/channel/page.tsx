@@ -17,7 +17,7 @@ export default async function Page({
 
             <Suspense fallback={<>...</>}>
                 <SubscribePopup user={user} channel={channel} />
-                <CallWrapper channelName={channel} />
+                <CallWrapper channelName={channel} userName={user} />
             </Suspense>
         </div>
     )

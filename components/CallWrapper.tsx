@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Call from "@/components/Call";
 
-export default function CallWrapper({ channelName }: { channelName: string }) {
+export default function CallWrapper({ channelName, userName }: { channelName: string, userName: string }) {
 
     const [rtcData, setRtcData] = useState({ channelName: channelName, appId: process.env.NEXT_PUBLIC_AGORA_APP_ID!, rtcToken: '', numericUid: 0 })
 
@@ -33,7 +33,7 @@ export default function CallWrapper({ channelName }: { channelName: string }) {
         return (
             <>
                 <div>{rtcData.channelName}</div>
-                <Call channelName={rtcData.channelName} appId={rtcData.appId} rtcToken={rtcData.rtcToken} numericUid={rtcData.numericUid} />
+                <Call channelName={rtcData.channelName}  userName={userName} appId={rtcData.appId} rtcToken={rtcData.rtcToken} numericUid={rtcData.numericUid} />
             </>
         );
 }
