@@ -1,8 +1,8 @@
 import Form from 'next/form';
 
-export default async function Home({ userName }) {
+export default async function Home({ user }) {
 
-  //const { userName } = await searchParams;
+  //const { user } = await searchParams;
   return (
     <div className="flex flex-col items-center">
       <h1
@@ -27,7 +27,7 @@ export default async function Home({ userName }) {
               id="inline-full-name"
               type="text"
               name="user"
-              value={userName}
+              value={user}
               placeholder="Имя лат. буквами"
               required
             />
