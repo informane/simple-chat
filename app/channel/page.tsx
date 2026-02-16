@@ -14,8 +14,8 @@ export default async function Page({
     console.log("channel Name: ", channel, "user Name:", user);
 
 
-    const pushPromise = await sendPushCall(channel, user);
-    console.log(pushPromise)
+    const push = await sendPushCall(channel, user);
+    console.log(push)
 
     return (
         <div className="flex w-full flex-col">
