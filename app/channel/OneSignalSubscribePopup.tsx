@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import OneSignal from 'react-onesignal';
+import dynamic from 'next/dynamic';
 
 export default function SubscribePopup({ user, channel }/*:
   { user: string, channel: string }*/
@@ -16,49 +17,73 @@ export default function SubscribePopup({ user, channel }/*:
     if (!userName) return;
 
     const initializeOneSignal = async () => {
+      try {
+        //const OneSignal = (await import('react-onesignal')).default;
 
-      await OneSignal.init({
-        appId: appId,
-        safari_web_id: safari_web_id,
-        notificationClickHandlerMatch: 'exact',
-        notificationClickHandlerAction: 'focus',
-        welcomeNotification: {
-          message: 'Теперь вы (' + user + ') подписаны на канал ' + channel
-        },
-        autoResubscribe: false,
-        /*webhooks: {
-          cors: false,
-          'notification.willDisplay': 'https://chatter-psi-six.vercel.app/api/onesignal/shown',
-          'notification.clicked': 'https://chatter-psi-six.vercel.app/api/onesignal/accepted',
-          'notification.dismissed': 'https://chatter-psi-six.vercel.app/api/onesignal/rejected'
-        },*/
-        promptOptions: {
-          slidedown: {
-            prompts: [{
-              type: 'push',
-              autoPrompt: true,
-              delay: { pageViews: 1, timeDelay: 3 },
-              categories: [{
-                tag: channel,
-                label: "Пользователь вошел на канал " + channel
-              }],
-              text: {
-                actionMessage: "Оставайтесь в курсе всех кто заходит на канал " + channel,
-                acceptButton: "Подписаться",
-                //cancelButton: "Maybe Later"
-              }
-            }]
-          }
-        },
-      });
 
-      OneSignal.User.PushSubscription.addEventListener(
-        'change',
-        subscribeUser
-      );
+        await OneSignal.init({
+          appId: appId,
+          safari_web_id: safari_web_id,
+          notificationClickHandlerMatch: 'exact',
+          notificationClickHandlerAction: 'focus',
+          welcomeNotification: {
+            message: 'Теперь вы (' + user + ') подписаны на канал ' + channel
+          },
+          autoResubscribe: false,
+          /*webhooks: {
+            cors: false,
+            'notification.willDisplay': 'https://chatter-psi-six.vercel.app/api/onesignal/shown',
+            'notification.clicked': 'https://chatter-psi-six.vercel.app/api/onesignal/accepted',
+            'notification.dismissed': 'https://chatter-psi-six.vercel.app/api/onesignal/rejected'
+          },*/
+          promptOptions: {
+            slidedown: {
+              prompts: [{
+                type: 'push',
+                autoPrompt: true,
+                delay: { pageViews: 1, timeDelay: 3 },
+                categories: [{
+                  tag: channel,
+                  label: "Пользователь вошел на канал " + channel
+                }],
+                text: {
+                  actionMessage: "Оставайтесь в курсе всех кто заходит на канал " + channel,
+                  acceptButton: "Подписаться",
+                  //cancelButton: "Maybe Later"
+                }
+              }]
+            }
+          },
+        });
+
+        const subscribeUser = async (event) => {
+
+          //if (isSubscribed) {
+          //console.log('user subscribed success')
+          const user_id = OneSignal.User.onesignalId;
+          //setUserId(user_id);
+          console.log('user_id: ', OneSignal.User.onesignalId);
+          console.log('user_name: ', user);
+          await OneSignal.login(user);
+          console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
+          //}
+        }
+
+        OneSignal.User.PushSubscription.addEventListener(
+          'change',
+          subscribeUser
+        );
+
+        console.log("OneSignal initialized successfully");
+      } catch (err) {
+        console.error("OneSignal init error:", err);
+      }
 
     }
-    initializeOneSignal();
+
+    if (typeof window !== "undefined") {
+      initializeOneSignal();
+    }
 
 
     /*return () => {
@@ -70,19 +95,7 @@ export default function SubscribePopup({ user, channel }/*:
 
   }, [])
 
-  const subscribeUser = async (event) => {
 
-    //if (isSubscribed) {
-    //console.log('user subscribed success')
-    const user_id = OneSignal.User.onesignalId;
-    //setUserId(user_id);
-    console.log('user_id: ', OneSignal.User.onesignalId);
-    console.log('user_name: ', user);
-    await OneSignal.login(user);
-    console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
-    //}
-
-  }
 
   return null;
 };

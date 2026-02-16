@@ -1,16 +1,15 @@
-'use client'
+//'use client'
 import CallWrapper from "@/components/CallWrapper";
-import SubscribePopup from './OneSignalSubscribePopup';
-import { use } from 'react'
+import SubscribePopup from './OneSignalSubscribePopupWrap';
 import { Suspense } from 'react'
 
-export default async function Page({ user, channel }) 
-/*export default async function Page({
+//export default function Page({ user, channel }) 
+export default async function Page({
     searchParams,
 }: {
-    searchParams: Promise<{ userName: string, channelName: string }>
-})*/ {
-    //const { channelName, userName } = await searchParams;
+    searchParams: Promise<{ user: string, channel: string }>
+}) {
+    const { channel, user } = await searchParams;
     console.log("channel Name: ", channel, "user Name:", user);
 
     return (

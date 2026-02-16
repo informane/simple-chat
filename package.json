@@ -12,6 +12,7 @@
     "@tailwindcss/postcss": "^4.1.17",
     "agora-rtc-react": "^2.0.0",
     "agora-token": "^2.0.5",
+    "baseline-browser-mapping": "^2.9.19",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
