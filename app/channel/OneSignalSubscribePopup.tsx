@@ -65,7 +65,7 @@ export default function SubscribePopup({ user, channel }:
       //setUserId(user_id);
       console.log('user_id: ', OneSignal.User.onesignalId);
 
-      OneSignal.login(user);
+      await OneSignal.login(user);
       console.log(user_id, 'user_name: ', user, 'ext_id: ', OneSignal.User.externalId);
       //}
 
