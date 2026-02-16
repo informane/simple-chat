@@ -12,8 +12,8 @@ export default function SubscribePopup({ user, channel }:
 
 
   useEffect(() => {
-
-    if (!userName) return; 
+    console.log(user, userName)
+    if (!userName) return;
 
     const initializeOneSignal = async () => {
 
@@ -54,7 +54,7 @@ export default function SubscribePopup({ user, channel }:
 
       OneSignal.User.PushSubscription.addEventListener(
         'change',
-        (event) => subscribeUser(event, user)
+        subscribeUser
       );
 
     }
@@ -68,17 +68,17 @@ export default function SubscribePopup({ user, channel }:
       )
     };*/
 
-  }, [userName])
+  }, [])
 
-  const subscribeUser = async (event, user1) => {
+  const subscribeUser = async (event) => {
 
     //if (isSubscribed) {
     //console.log('user subscribed success')
     const user_id = OneSignal.User.onesignalId;
     //setUserId(user_id);
     console.log('user_id: ', OneSignal.User.onesignalId);
-    console.log(OneSignal.User, 'user_name: ', user, user1, userName);
-    await OneSignal.login(userName);
+    console.log('user_name: ', user);
+    await OneSignal.login(user);
     console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
     //}
 
