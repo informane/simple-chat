@@ -39,17 +39,18 @@ export default function SubscribePopup({ user, channel }/*:
           promptOptions: {
             slidedown: {
               prompts: [{
-                type: 'push',
+                type: 'category',
                 autoPrompt: true,
                 delay: { pageViews: 1, timeDelay: 3 },
-                categories: [{
-                  tag: channel,
-                  label: channel
-                },
-                {
-                  tag: 'user_' + user,
-                  label: 'user_' + user,
-                }
+                categories: [
+                  {
+                    tag: channel,
+                    label: channel
+                  },
+                  {
+                    tag: 'user_' + user,
+                    label: 'user_' + user,
+                  }
                 ],
                 text: {
                   actionMessage: "Оставайтесь в курсе всех кто заходит на канал " + channel,
