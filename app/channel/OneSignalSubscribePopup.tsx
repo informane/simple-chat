@@ -39,7 +39,7 @@ export default function SubscribePopup({ user, channel }/*:
           promptOptions: {
             slidedown: {
               prompts: [{
-                type: 'category',
+                type: 'push',
                 autoPrompt: true,
                 delay: { pageViews: 1, timeDelay: 3 },
                 categories: [
@@ -71,6 +71,10 @@ export default function SubscribePopup({ user, channel }/*:
           console.log('user_id: ', OneSignal.User.onesignalId);
           console.log('user_name: ', user);
           await OneSignal.login(user);
+          await OneSignal.User.addTags({
+            [channel]: channel,
+            ['user_' + user]: 'user_' + user
+          });
           console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
           //}
         }
