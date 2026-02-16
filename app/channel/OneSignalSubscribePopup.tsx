@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import OneSignal from 'react-onesignal';
 
-export default function SubscribePopup({ user, channel }:
-  { user: string, channel: string }
+export default function SubscribePopup({ user, channel }/*:
+  { user: string, channel: string }*/
 ) {
 
   const [userName, setUserName] = useState(user);

@@ -39,7 +39,7 @@ export default async function Home({ user }) {
               type="text"
               name="channel"
               value="Mama"
-              placeholder="Канал лат. буквамт"
+              placeholder="Канал лат. буквами"
               required
             />
           </div>
