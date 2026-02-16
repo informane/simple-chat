@@ -1,5 +1,4 @@
 "use client";
-import { channel } from 'diagnostics_channel';
 import { sendPushCall } from '../app/channel/lib';
 import AgoraRTC, {
   AgoraRTCProvider,
@@ -15,13 +14,10 @@ import AgoraRTC, {
 } from "agora-rtc-react";
 
 
-async function Call(props: { appId: string, channelName: string, userName: string, rtcToken: string, numericUid: number }) {
+function Call(props: { appId: string, channelName: string, userName: string, rtcToken: string, numericUid: number }) {
   const client = useRTCClient(
     AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })
   );
-
-  const PushPromise = await sendPushCall(props.channelName, props.userName);
-  console.log(PushPromise);
   
   return (
     <AgoraRTCProvider client={client}>
