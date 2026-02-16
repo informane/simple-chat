@@ -1,4 +1,4 @@
-'use client'
+//'use client'
 import CallWrapper from "@/components/CallWrapper";
 import SubscribePopup from './OneSignalSubscribePopup';
 import { use } from 'react'
