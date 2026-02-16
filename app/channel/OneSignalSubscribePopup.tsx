@@ -12,6 +12,9 @@ export default function SubscribePopup({ user, channel }:
 
 
   useEffect(() => {
+
+    if (!userName) return; 
+
     const initializeOneSignal = async () => {
 
       await OneSignal.init({
@@ -58,8 +61,6 @@ export default function SubscribePopup({ user, channel }:
     initializeOneSignal();
 
 
-
-
     /*return () => {
       OneSignal.User.PushSubscription.removeEventListener(
         'change',
@@ -67,21 +68,21 @@ export default function SubscribePopup({ user, channel }:
       )
     };*/
 
-  }, []);
+  }, [userName])
 
-    const subscribeUser = async (event, user1) => {
+  const subscribeUser = async (event, user1) => {
 
-      //if (isSubscribed) {
-      //console.log('user subscribed success')
-      const user_id = OneSignal.User.onesignalId;
-      //setUserId(user_id);
-      console.log('user_id: ', OneSignal.User.onesignalId);
-      console.log(OneSignal.User, 'user_name: ', user, user1, userName);
-      await OneSignal.login(userName);
-      console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
-      //}
+    //if (isSubscribed) {
+    //console.log('user subscribed success')
+    const user_id = OneSignal.User.onesignalId;
+    //setUserId(user_id);
+    console.log('user_id: ', OneSignal.User.onesignalId);
+    console.log(OneSignal.User, 'user_name: ', user, user1, userName);
+    await OneSignal.login(userName);
+    console.log('login succecss', 'ext_id: ', OneSignal.User.externalId)
+    //}
 
-    }
+  }
 
   return null;
 };
