@@ -3,13 +3,9 @@ import { useEffect, useState } from "react";
 import Call from "@/components/Call";
 import { sendPushCall } from '../app/channel/lib';
 
-export default async function CallWrapper({ channelName, userName }: { channelName: string, userName: string }) {
+export default function CallWrapper({ channelName, userName }: { channelName: string, userName: string }) {
 
     const [rtcData, setRtcData] = useState({ channelName: channelName, appId: process.env.NEXT_PUBLIC_AGORA_APP_ID!, rtcToken: '', numericUid: 0 })
-
-
-    /*const PushPromise = await sendPushCall(channelName, userName);
-    console.log(PushPromise);*/
 
     useEffect(() => {
 
