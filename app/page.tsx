@@ -1,14 +1,8 @@
 import Form from 'next/form';
 
-export default async function Home(
-  {
-    searchParams,
-  }: {
-    searchParams: Promise<{ userName: string }>
-  }
-) {
+export default async function Home({ userName }) {
 
-  const { userName } = await searchParams;
+  //const { userName } = await searchParams;
   return (
     <div className="flex flex-col items-center">
       <h1

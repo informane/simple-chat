@@ -4,13 +4,13 @@ import SubscribePopup from './OneSignalSubscribePopup';
 import { use } from 'react'
 import { Suspense } from 'react'
 
-
-export default async function Page({
+export default async function Page({ userName, channelName }) 
+/*export default async function Page({
     searchParams,
 }: {
     searchParams: Promise<{ userName: string, channelName: string }>
-}) {
-    const { channelName, userName } = await searchParams;
+})*/ {
+    //const { channelName, userName } = await searchParams;
     console.log("channel Name: ", channelName, "user Name:", userName);
 
     return (
