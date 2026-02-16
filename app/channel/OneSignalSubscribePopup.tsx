@@ -56,8 +56,9 @@ export default function SubscribePopup({ user, channel }:
 
     }
     initializeOneSignal();
+    
 
-    const subscribeUser = async (event,, user) => {
+    const subscribeUser = async (event, user) => {
 
       //if (isSubscribed) {
       //console.log('user subscribed success')
