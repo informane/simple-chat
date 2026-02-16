@@ -58,6 +58,17 @@ export default function SubscribePopup({ user, channel }:
     initializeOneSignal();
 
 
+
+
+    /*return () => {
+      OneSignal.User.PushSubscription.removeEventListener(
+        'change',
+        (event) => subscribeUser(event, user)
+      )
+    };*/
+
+  }, []);
+
     const subscribeUser = async (event, user1) => {
 
       //if (isSubscribed) {
@@ -71,15 +82,6 @@ export default function SubscribePopup({ user, channel }:
       //}
 
     }
-
-    /*return () => {
-      OneSignal.User.PushSubscription.removeEventListener(
-        'change',
-        (event) => subscribeUser(event, user)
-      )
-    };*/
-
-  }, []);
 
   return null;
 };
