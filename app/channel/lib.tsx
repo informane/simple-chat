@@ -12,19 +12,19 @@ export async function sendPushCall(channel, user) {
             filters: [
                 {
                     "field": "tag",
-                    "relation": "exists",
+                    "relation": "=",
                     //"key": "category",
-                    "key": channel
+                    "value": channel
                 },
-                {
+                /*{
                     "operator": "AND" // Ensures BOTH conditions must be met
                 },
                 {
                     "field": "tag",
                     "relation": "not_exists",
                     //"key": "category",
-                    "key": 'user_' + user
-                },
+                    "value": 'user_' + user
+                },*/
             ],
             data: {
                 user: user,
